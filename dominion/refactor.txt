@@ -1,0 +1,35 @@
+Mihai Dan
+4/17/2016
+Documented Changes
+refactor.txt
+
+Documented changes in dominion.c:
+1.) Five cards were chosen to refactor. The cards were smithy, village, remodel, council_room, and embargo.
+2.) Five functions declarations were made to accommodate for the refactoring of the five cards. The functions were named smithyCardEffect(), villageCardEffect(), remodelCardEffect(), councilRoomCardEffect(), and embargoCardEffect().
+3.) The definition of the smithyCardEffect() function was copied from the switch statement with the 'smithy' case.
+4.) The parameters given to smithyCardEffect() were int currentPlayer, struct gameState *state, and int handPos. These were given based on what was used in the function definition.
+5.) Declared i as an integer at the beginning of the function.
+6.) The definition of the villageCardEffect() function was copied from the switch statement with the 'village' case.
+7.) The parameters given to villageCardEffect() were int currentPlayer, struct gameState *state, and int handPos. These were given based on what was used in the function definition.
+8.) The definition of the remodelCardEffect() function was copied from the switch statement with the 'remodel' case.
+9.) The parameters given to remodelCardEffect() were int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos, and int j. These were given based on what was used in the function definition.
+10.) Declared i as an integer at the beginning of the function.
+11.) The definition of the councilRoomCardEffect() function was copied from the switch statement with the 'council_room' case.
+12.) The parameters given to councilRoomCardEffect() were int currentPlayer, struct gameState *state, and int handPos. These were given based on what was used in the function definition.
+13.) Declared i as an integer at the beginning of the function.
+14.) The definition of the embargoCardEffect() function was copied from the switch statement with the 'embargo' case.
+15.) The parameters given to embargoCardEffect() were struct gameState *state, int choice1, int handPos, and int currentPlayer. These were given based on what was used in the function definition.
+16.) Add the respective function call in the switch statement within each case '(card)' that was refactored.
+
+Documented changes in dominion.h:
+1.) Added the function declaration
+	int smithyCardEffect(int currentPlayer, struct gameState *state, int handPos);
+2.) Added the function declaration
+	int villageCardEffect(int currentPlayer, struct gameState *state, int handPos);
+3.) Added the function declaration
+	int remodelCardEffect(int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos, int j);
+4.) Added the function declaration
+	int councilRoomCardEffect(int currentPlayer, struct gameState *state, int handPos);
+5.) Added the function declaration
+	int embargoCardEffect(struct gameState *state, int choice1, int handPos, int currentPlayer);
+** These are respective to the newly created functions in the .c file.
