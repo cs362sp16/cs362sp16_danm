@@ -1,6 +1,6 @@
-/***************
-* SHUFFLE TEST *
-***************/
+/****************
+* CARD ONE TEST *
+****************/
 
 #include "dominion.h"
 #include <stdio.h>
@@ -30,31 +30,12 @@ int main(){
 						mine,ambassador,outpost,baron,tribute};
 	
 	// Pick a random seed.					
-	int randomSeed = 60;
+	int randomSeed = 750;
 	
 	// Initialize game.
 	initializeGame(2, k, randomSeed, &g);
 	
-	printf("\n\n************   UNIT TEST 4   ****************\n\n");
 	
-	printf("Shuffling on first turn...\n");
 	
-	// Checking to see if you can shuffle Player 1's deck.
-	int shuffleCheck = shuffle(1, &g);
-	myAssert(shuffleCheck, "1");
-	
-	// Ending player 1 and player 2's turn.
-	endTurn(&g);
-	endTurn(&g);
-	
-	printf("Shuffling on second turn...\n");
-	
-	// Checking to see if you can shuffle Player 1's deck on second turn.
-	int shuffleCheck2 = shuffle(1, &g);
-	myAssert(shuffleCheck2, "2");
-	
-	printf("\n\n***************   DONE   *******************\n\n");
-	
-	return 0;
 	
 }

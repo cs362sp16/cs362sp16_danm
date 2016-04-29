@@ -7,7 +7,8 @@
 
 int failed = 0;
 
-int myAssert(int num, char* message) {
+// Assert function.
+void myAssert(int num, char* message) {
 	if (num == 0){
 		printf("TEST #%s SUCCESSFULLY PASSED.\n", message);
 	} else if(num != 0) {
@@ -34,6 +35,8 @@ int main(){
 	// Initialize game.
 	initializeGame(2, k, randomSeed, &g);
 	
+	printf("\n\n************   UNIT TEST 1   ****************\n\n");
+	
 	// Player 1 draws.
 	printf("Testing Player 1 buying:\n");
 	int checkBuy = buyCard(1, &g);
@@ -55,4 +58,8 @@ int main(){
 	
 	// Check asserts.
 	checkAsserts();
+	
+	printf("\n\n***************   DONE   *******************\n\n");
+	
+	return 0;
 }
