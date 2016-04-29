@@ -1,0 +1,8 @@
+While writing my unit tests, I did not face any unexpected
+outcomes. In unit test 1, I had the first player purchase
+a card, which worked without fail. I had the second player
+purchase a card, and try to buy another. The second one failed
+because the player did not have enough coins. Similar to the
+first one, the remaining tests were designed to test several
+functions of the code. Any bugs within these files are purposely
+placed to test the game for wrong input or invalid functions.

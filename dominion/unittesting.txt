@@ -1,0 +1,36 @@
+Mihai Dan
+Assignment 2
+
+As part of this assignment, we were tasked with running
+gcov on our dominion.c file after implementing our tests.
+After running my tests, gcov returned a coverage of 
+34.95% out of 558 lines. This suggests that the tests I
+ran on the dominion code covered roughly 1/3 of the entire
+document. I was surprised to find that a total of eight 
+tests taken throughout the source code would yield such
+a high coverage percentage. For unit test 1, I tested
+whether a player can buy a card, as well as what happens
+when a player tries to buy but shouldn't be able to. For
+unit test 2, I tested whether the numHandCards function
+works, but testing player's hands against what they were
+supposed to have. For unit test 3, I tested whether the 
+endTurn and whoseTurn functions work by repeatedly
+taking turns and checking which player is playing. For
+unit test 4, I tested the shuffle function. In this, I
+tested whether or not the deck of cards was shuffled.
+For the card tests, I tested the effects of the village,
+baron, cutpurse, and adventurer cards.
+
+As mentioned in the unittestbugs.txt, the tests went well
+overall. The only bugs found were the ones intentionally
+implemented in order to test the system.
+
+The implementation of the unit tests depended heavily on
+my knowledge of the game. I had to go back to the rules
+several times and refresh my knowledge. I also studied
+the source code for a while before starting to test it.
+The hardest part of this was understanding what someone 
+else was doing without much commenting throughout. The
+card test implementations were simpler, as I was only
+testing the effects of specific cards, not a whole function
+of the game.
