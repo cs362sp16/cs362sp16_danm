@@ -23,16 +23,21 @@ unittest:
 	gcc -o unittest2 unittest2.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest3 unittest3.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest4 unittest4.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest1 cardtest1.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest2 cardtest2.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest3 cardtest3.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest4 cardtest4.c dominion.o rngs.o $(CFLAGS)
+	
 	rm -f unittestresult.out
 	./unittest1 >> unittestresult.out
-	gcov dominion.c >> unittestresult.out
 	./unittest2 >> unittestresult.out
-	gcov dominion.c >> unittestresult.out
 	./unittest3 >> unittestresult.out
-	gcov dominion.c >> unittestresult.out
 	./unittest4 >> unittestresult.out
+	./cardtest1 >> unittestresult.out
+	./cardtest2 >> unittestresult.out
+	./cardtest3 >> unittestresult.out
+	./cardtest4 >> unittestresult.out
 	gcov dominion.c >> unittestresult.out
-
 
 all: playdom player
 
