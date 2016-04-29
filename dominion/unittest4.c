@@ -53,6 +53,8 @@ int main(){
 	int shuffleCheck2 = shuffle(1, &g);
 	myAssert(shuffleCheck2, "2");
 	
+	checkAsserts();
+	
 	printf("\n\n***************   DONE   *******************\n\n");
 	
 	return 0;

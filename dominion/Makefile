@@ -18,7 +18,7 @@ player: player.c interface.o
 asimpletest:
 	gcc -o simpletest asimpleunittest.c -g dominion.o rngs.o interface.o $(CFLAGS)
 	
-unittest:
+unittestresults:
 	gcc -o unittest1 unittest1.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest2 unittest2.c dominion.o rngs.o $(CFLAGS)
 	gcc -o unittest3 unittest3.c dominion.o rngs.o $(CFLAGS)
@@ -28,16 +28,16 @@ unittest:
 	gcc -o cardtest3 cardtest3.c dominion.o rngs.o $(CFLAGS)
 	gcc -o cardtest4 cardtest4.c dominion.o rngs.o $(CFLAGS)
 	
-	rm -f unittestresult.out
-	./unittest1 >> unittestresult.out
-	./unittest2 >> unittestresult.out
-	./unittest3 >> unittestresult.out
-	./unittest4 >> unittestresult.out
-	./cardtest1 >> unittestresult.out
-	./cardtest2 >> unittestresult.out
-	./cardtest3 >> unittestresult.out
-	./cardtest4 >> unittestresult.out
-	gcov dominion.c >> unittestresult.out
+	rm -f unittestresults.out
+	./unittest1 >> unittestresults.out
+	./unittest2 >> unittestresults.out
+	./unittest3 >> unittestresults.out
+	./unittest4 >> unittestresults.out
+	./cardtest1 >> unittestresults.out
+	./cardtest2 >> unittestresults.out
+	./cardtest3 >> unittestresults.out
+	./cardtest4 >> unittestresults.out
+	gcov dominion.c >> unittestresults.out
 
 all: playdom player
 

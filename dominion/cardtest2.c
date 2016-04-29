@@ -19,7 +19,7 @@ void myAssert(int num, char* message) {
 
 void checkAsserts() {
 	if (!failed) {
-		printf("ALL TESTS SUCCESSFULLY COMPLETED.\n");
+		printf("\nALL TESTS SUCCESSFULLY COMPLETED.\n");
 	}
 }
 
@@ -51,6 +51,8 @@ int main(){
 	}else{
 		myAssert(1, "Wrong amount of cards.");
 	}
+	
+	checkAsserts();
 	
 	printf("\n\n***************   DONE   *******************\n\n");
 	
