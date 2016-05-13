@@ -1,0 +1,36 @@
+Mihai Dan
+5/13/2016
+
+randomtesting.txt	
+
+	
+For Assignment #3, we were asked to develop random testers for three different
+cards, one being the adventurer card and the other being one previously tested
+in Assignment #2. In order to make these tests are randomized as possible, I 
+first set the number of players and game seed to a random variable up to 4 and 
+5000, respectively. This would assure for a randomized start of the game. I gave
+the deck count a 1 out of 9 chance of being 0 to further randomize the test. The
+player was also given a random hand and discard count. The overall coverage of
+these tests came out to 44.98% of 558 lines, which was just over 10% more than
+the coverage obtained from unit tests. These tests were implemented with the
+chance of them breaking the code; this helped in testing to check if the cards
+were able to respond accordingly to incorrect input.
+
+As far as the coverage of the individual cards, I was close to 100% on all of
+them. The test suites combined lead to 7,000 test cases per card. This
+randomization allowed for edge cases to be included in testing, as well as
+normal tests to be run several times. After performing these tests, the only
+thing that my code did not check are negative values. The bounds of the 
+randomization is within bounds respectively for each value, not checking
+incorrect inputs. As far as the source code for the cards, my code did not fail
+to cover any of it as there were so many test cases.
+	
+As previously mentioned, the coverage yielded after performing these tests was
+44.98% of 558. The unit test coverage was only 34.95%. Even though they might
+have similar coverages, I believe both of these tests are important. Unit tests
+are important in covering a larger portion of code, while random testing focuses
+one a specific function or section. In order to find faults using unit tests, the
+output must be compared to the expected result. In random testing, the pattern of
+outputs created must be observed and have conclusions drawn from. I think that 
+random testing has better fault detection simply because it performs a lot of 
+different tests on the same piece of code, yielding a higher chance at finding them.
