@@ -34,3 +34,9 @@ output must be compared to the expected result. In random testing, the pattern o
 outputs created must be observed and have conclusions drawn from. I think that 
 random testing has better fault detection simply because it performs a lot of 
 different tests on the same piece of code, yielding a higher chance at finding them.
+
+The test suites consists of 500 test cases. Each card has 14 test suites run on it.
+An interesting observation I made while testing is that as soon as I raised the
+number of test suites to 15+, the time it took to complete the tests went up to
+5+ minutes. I'm not sure what the reason of this is, as the time it took 14 test
+suites was around a minute for each card.
