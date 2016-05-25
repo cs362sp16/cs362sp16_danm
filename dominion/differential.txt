@@ -1,0 +1,30 @@
+Mihai Dan
+5/24/2016
+Assignment 4
+differential.txt
+
+	Differential testing was an interesting method to apply to
+this game. It took me several attempts to get the diff tool to
+work properly, but once that was resolved the testing ran rather
+well. I had to do multiple runs of the test to get a return
+statement of TEST FAILED from diffdominion. I think this is partially
+due to the fact that most of the code used in my classmates'
+assignments is fairly similar. Most of the changes done throughout
+have been refactoring of certain parts of dominion. I am not sure
+what the difference is, as I was only able to receive a return
+statement from my function. Looking through the results of the
+random tests, I noticed that neither were played necessarily smart.
+The bounds I had implemented gave the game a little direction, but
+I left it up to chance of what happens. Implementing strategy into
+a random tester such as this one is a concept that I feel is beyond
+this class. With this tester, I was able to achieve coverage above
+80% on my own code, but was only able to get up to 65% coverage on
+my classmates. I'm not sure why this happened, but my only assumption
+is that the random tester did not reach the extreme cases in dominion.
+
+Differential testing is not very effective for testing a game such
+as this one. The reason being that the results from a random tester 
+are very hard to compare. The results can vary greatly depending on
+what hands are dealt, how many players, etc. It is hard to decide
+who is correct because neither have a correct strategy that can be
+followed.

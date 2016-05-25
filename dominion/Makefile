@@ -55,6 +55,13 @@ randomcardtest:
 	./randomtestadventurer >> randomtestadventurer.out
 	gcov dominion.c >> randomtestadventurer.out
 	
+testdominion: testdominion.c dominion.o rngs.o
+	gcc -o testdominion -std=c99 testdominion.c dominion.o rngs.o $(CFLAGS)	
+	rm -f testdominion.out
+	./testdominion 42 >> testdominion.out
+	
+testdominion.diff: testdominion.c dominion.o rngs.o
+	gcc -o testdominion -std=c99 testdominion.c dominion.o rngs.o $(CFLAGS)	
 
 all: playdom player
 
