@@ -1,0 +1,166 @@
+Dominion Mutation Testing
+Final Project
+
+
+***Summary***
+
+For this part of the project, I chose to do perform mutant testing.
+I focused my efforts towards the functions that I had previously
+performed tests on. I used the card and random card test files to
+evaluate five mutants of the adventurer, baron, cutpurse, and village
+card functions against the original source code.
+
+While creating the different mutants for each function, I considered
+several factors. I wanted to make sure that the mutants contained of
+at least one value, statement, and decision mutations.
+	value mutation: change in constant value or variable
+ 	statement mutation: direct modification of statement
+	decision mutation: change in operator
+This variation lead to a greater spread in the test results.
+
+In order to perform the testing, I ran the cardtest.c and randomtestcard.c
+files on each mutant, recorded the results, and compared them to the
+original source code.
+
+
+
+***Adventurer Card Function***
+
+Card Test:
+	-Mutant 1: failed, not enough cards
+	-Mutant 2: failed, not enough cards
+	-Mutant 3: failed
+	-Mutant 4: passed
+	-Mutant 5: failed
+
+While performing mutant testing, it is interesting to check the results
+of mutants that have not been killed. In order to "kill" a mutant, a test
+must return a different result than that of the original source code. This
+being my first time performing mutant testing on a program, I was surpised
+to see that most of my mutants were killed off for the first set of tests.
+The mutant that passed is a value mutant and the change does not seem to
+cause much of a problem.
+
+ORIGINAL: 	if (state->deckCount[currentPlayer] <1){
+MUTANT 4:	if (state->deckCount[currentPlayer] <0){
+
+This mutant also passed a majority of the random card tests performed. I
+believe this to be partially attributed to the fact that there is not a
+great difference in 1 and 0, therefore behaving almost identically.
+
+These tests ran on the original code yielded coverage of 21.55%. I was
+very surprised to see that all but one test had a higher coverage than
+the original. Mutant 1 had a coverage of 19.89%, while the others were
+at 24.73%. Mutant 1 covered less code because of the decisions in the if
+statement making it exit early.
+
+
+
+***Baron Card Function***
+
+Card Test:
+	-Mutant 1: failed, wrong hand count
+	-Mutant 2: failed
+	-Mutant 3: passed
+	-Mutant 4: failed, wrong hand count
+	-Mutant 5: failed, wrong hand count
+
+The one test that behaved similarly to the original source code was 
+performed on Mutant 3. Checking the code, the difference is
+
+ORIGINAL:	if (supplyCount(estate, state) == 0){
+MUTANT 3: 	if (supplyCount(estate, state) != 0){
+
+The reason why this mutant behaved similarly is because the test did
+not run for as long as needed. This if statement checks to see if the
+game is over. Since the test runs one turn, the game will not be over.
+This mutant will fail if the game continues, losing its ability to
+decide if the game is over or not.
+
+I got a coverage of 27.42% when running these tests on my own machine.
+The mutants had very similar results to this, ranging from 26.24% to
+27.60%. The reason behind the similarity of the coverages is the function
+itself. Even though some aspects have been altered, the program still
+traverses through the same amount of code.
+
+
+
+***Cutpurse Card Function***
+
+Card Test:
+	-Mutant 1: failed, not enough cards
+	-Mutant 2: failed, incorrect number of cards
+	-Mutant 3: failed, not enough cards
+	-Mutant 4: failed, results incorrect
+	-Mutant 5: failed, incorrect number of cards
+
+The cutpurse function was interesting to test this way. There are a lot
+of if statements and for loops that go in to creating this function. This
+meant a lot of potential for good mutations. I quickly learned that any
+small change will lead to failure in this function. All of the mutants
+yielded an incorrect result. This is due to the fact that most of the
+changes affected the discard function, such as
+
+ORIGINAL:	if (state->hand[i][j] == copper){
+			discardCard(j, i, state, 0);
+MUTANT 2:	if (state->hand[i][j] != copper){
+			discardCard(j, i, state, 0);
+
+ORIGINAL:	if (state->hand[i][j] == copper){
+			discardCard(j, i, state, 0);
+MUTANT 4:	if (state->hand[j][i] == copper){
+			discardCard(j, i, state, 0);
+
+ORIGINAL:	discardCard(handPos, currentPlayer, state, 0);
+MUTANT 5:	discardCard(handPos+1, currentPlayer, state, 0);
+
+These changes are too drastic to not affect the gameplay or results,
+therefore the mutants can be killed.
+
+The coverage for the original source code is almost identical to the
+mutants'. The test ran on the original code yields a coverage of
+21.15%. The first mutant yields a coverage of 21.68%, while the others
+are at 21.15%.
+
+
+
+***Village Card Function***
+
+Card Test:
+	-Mutant 1: failed, not enough cards
+	-Mutant 2: passed
+	-Mutant 3: failed, incorrect number of cards
+	-Mutant 4: passed
+	-Mutant 5: failed, incorrect number of cards
+
+The two mutants that were not killed in these tests were 2 and 4.
+A closer look at the changes explains why they behaved the same as
+the original code.
+
+ORIGINAL:	state->numActions = state->numActions + 2
+MUTANT 2:	state->numActions = state->numActions + 4
+
+ORIGINAL:	state->numActions = state->numActions + 2
+MUTANT 4:	state->numActions = state->numActions - 1
+
+This goes back to the same problem as previously mentioned. The tests
+are only designed to run for one turn. This is not enough to see the
+negative effects that are produced by these changes. Even though they
+might not be noticeable now, they will definitely affect the gameplay
+later.
+
+The coverage of the original code is 23.48% for this test. The mutants
+coverage results are very close to this one, ranging from 22.94% to
+23.48%. 
+
+
+
+***Conclusion***
+
+Overall, I think mutant testing is an interesting way to approach
+finding and fixing bugs. Observing the behavior of the same code with
+slight alterations is a good way to tell if your system is correct.
+I was not expecting the number of mutants that were killed during 
+testing, but that is why we don't make assumptions based on guesses.
+I'm glad I was exposed to this style of testing because I feel that
+it will be very useful for certain future projects.
