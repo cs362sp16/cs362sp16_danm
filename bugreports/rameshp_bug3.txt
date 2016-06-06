@@ -1,0 +1,34 @@
+Bug Report 3
+
+Bug: buyCard() if statement logic mistake
+
+Unit Test 1 checks to see if the buyCard() function works
+properly, allowing the user to buy only if they have enough
+currency. 
+
+The function returned "You do not have enough money to buy 
+that. You have X coins." The bug here was that the X amount
+was greater than the cost of the card.
+
+The line that caused this was 
+
+	else if (state->coins > getCost(supplyPos))
+
+The decision sign > is facing the wrong way. This statement
+would always be triggered if the current player had more
+than enough coins to purchase the desired card. The fix is
+to flip the decision sign to be less than the cost of the
+desired card.
+
+	else if (state->coins < getCost(supplyPos))
+
+
+Severity: High
+This bug would not allow the player to buy a card even though
+they had enough currency to do so. This would throw off the
+game play and yield bad game results.
+
+Priority: High
+Since this is an easy fix to something that is very important
+to the game play, it should be prioritized highly. Fixing this
+will allow for players to be able to purchase cards.

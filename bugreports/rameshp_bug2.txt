@@ -1,0 +1,28 @@
+Bug Report 2
+
+Bug: numHandCards() failure in Unit Test 2
+
+Unit Test 2 checks to see if the numHandCards() function works
+correctly given different players and cards played. When
+performing these tests on my dominion source code, I found that
+the function returned the correct values.
+
+The bug I found in Pranav's source code is that the function
+will not return the correct value after a turn has ended. The
+card count for Player 1 is succesful, while the card count for
+Player 2 returns an error.
+
+I was not able to pinpoint the source of this problem, as the
+numHandCards() function behaves correctly in the other tests I
+have performed.
+
+
+Severity: Low
+This only affects the ability to check how many cards are in a
+player's hand. While this may be annoying, it is not detrimental
+to the game play, meaning the game could still be played. 
+
+Priority: Low
+This is something that can be discovered and fixed in later testing,
+the main focus should be on making sure the currency is kept track of
+correctly.

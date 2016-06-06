@@ -1,0 +1,26 @@
+Bug Report 1
+
+Bug: councilRoomCard() did not behave correctly.
+
+The implementation of the councilRoomCard() function deals out cards
+to each of the players in the game. As stated by the Dominion Game
+Rules, when the council room card is played, "the other players must 
+draw a card whether they want to or not." This does not include the
+current player.
+
+This can be easily fixed by adding an if statement, such as
+
+	if(i != currentPlayer){
+		drawCard(i, state);
+	}
+
+
+Severity: Medium
+This bug added one extra card to the current player. This would not
+yield accurate results for the end of the game, but is not completely
+detrimental.
+
+Priority: Medium
+Since this bug is not detrimental to the game and does not require a
+lot of time to fix, I think the priority is medium. When fixed, it will
+yield the correct results, but the game will still run with it present.
