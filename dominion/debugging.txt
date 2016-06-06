@@ -1,0 +1,62 @@
+Process of Identifying and Fixing a Bug in My Code
+debugging.txt
+
+George Harder ran tests and evaluated my code. In one of his bug reports,
+George mentions that the playCard() function returns an error because
+of the decision statement
+
+	( card < adventurer || card > treasure_map )
+
+He had stated that after several different runs with various configurations
+for the test, the conditional always returned true. I decided to look into 
+this bug because he had not been able to pinpoint a solution to the problem. 
+
+I had not caught this in my own unit testing because this function was not
+one that I had tested. To begin this solving this problem, I created a random
+unit test for the playCard() function. This unit test created and started
+several games of dominion, with a randomized seed and number of players. The
+playCard() function was called on whatever card each player had. I used the
+GNU Project Debugger to track the values returned from the playCard() function,
+comparing them to the expected outcome. The test results were surprising, as
+the playCard() function was returning correct values for all but some
+extraneous cases. I ran the tests several times, and still got an overwhelming
+majority of passing tests.
+
+*playCard() unit test can be found in playCardTest.c
+
+I was confused as to why the function was working correctly, while it had failed
+during George's tests. I checked his unit test and found a small problem with 
+the call to playCard().
+
+	playCard(baron,1,0,0,&g);
+
+George was using the wrong arguments when calling playCard(). The correct arguments
+are 
+	-int handPos
+	-int choice1
+	-int choice2
+	-int choice3
+	-struct gameState *state
+
+The function handCard() was expecting a hand position and the current game state.
+In George's implementation of the unit test, the handCard() was given a card
+name instead of a hand position, which will always return a funky value. While
+this may not have been a direct bug with my code, I'm glad it was brought to my
+attention. I think this just shows how careful one must be when implementing
+different tests for any kind of system. It also proves Agans' principle regarding
+to knowing the machine before testing it.
+
+
+A lot of the Agans' principles applied to the process of figuring out what the 
+problem was with the playCard() function. I think the most valuable principle
+discussed by Agans is Understand the System. Having knowledge of the system
+behavior is crucial to testing any part of it. In this case, I had to be fully
+aware of how what the playCard() function was supposed to return in order to
+correctly test it. Another principle that applied well in fixing this bug was
+Quit Thinking and Look. Instead of trying to reason and make changes based on
+my guesses, I ran several tests to get some data. Taking a look at the outcome
+of the tests gave me a place to start debugging and fixing the issue. Throughout
+the process of figuring out the issue, I found that Keeping an Audit Trail was
+really helpful. I ran several tests and recorded their outcomes to be able to
+cross refference them. That was very helpful, as it showed me that the function
+was working properly, even with different random inputs.
