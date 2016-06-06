@@ -58,7 +58,7 @@ int main(){
 			
 			g.discardCount[currentPlayer] = rand() % MAX_DECK;
 			
-			result = cardEffect(adventurer, 1, 1, 1, &g);
+			result = cardEffect(adventurer, 1, 1, 1, &g, 0, 0);
 			if(result == 0){
 				good++;
 			}else{
