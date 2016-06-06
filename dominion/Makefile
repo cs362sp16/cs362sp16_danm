@@ -60,6 +60,11 @@ testdominion: testdominion.c dominion.o rngs.o
 	rm -f testdominion.out
 	./testdominion 42 >> testdominion.out
 	
+playcardtest:
+	gcc -o playCardTest playCardTest.c dominion.o rngs.o $(CFLAGS)
+	rm -f playCardTest.out
+	./playCardTest >> playCardTest.out
+	
 testdominion.diff: testdominion.c dominion.o rngs.o
 	gcc -o testdominion -std=c99 testdominion.c dominion.o rngs.o $(CFLAGS)	
 
